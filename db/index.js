@@ -8,11 +8,10 @@ const mongoUri = process.env.MONGODB_URI ? `mongodb://${process.env.MONGODB_URI}
 
 const options = { promiseLibrary: Promise, useMongoClient: true };
 
-mongoose.connect(`mongodb://${mongoUri}:27017/analysis`, options);
+mongoose.connect(mongoUri, options);
 
 mongoose.Promise = Promise;
 
 const models = require('./models');
 
 module.exports = models;
-
