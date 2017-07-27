@@ -1,0 +1,22 @@
+version: '3'
+services:
+  mongo:
+    expose:
+      - 27017
+    image: "mongo:3.4.6"
+    networks:
+      - webnet
+  web:
+    build: .
+    depends_on:
+      - mongo
+    environment:
+      NODE_ENV: development
+    networks:
+      - webnet
+    ports:
+     - "1337:1337"
+    volumes:
+     - .:/opt/app
+networks:
+  webnet:
