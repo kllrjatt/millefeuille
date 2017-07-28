@@ -6,6 +6,8 @@ services:
     image: "mongo:3.4.6"
     networks:
       - webnet
+    ports:
+      - "27017:27017"
   web:
     build: .
     depends_on:
